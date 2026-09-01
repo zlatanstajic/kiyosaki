@@ -1,0 +1,18 @@
+{
+  "preset": "base",
+  "ignore": {
+    "words": [
+      "analyse",
+      "deterministically",
+      "img",
+      "Kiyosaki",
+      "lotto",
+      "og",
+      "PDO",
+      "randomizer",
+      "SQLite",
+      "zlatanstajic"
+    ],
+    "paths": ["database"]
+  }
+}

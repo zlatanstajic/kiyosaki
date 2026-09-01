@@ -1,0 +1,53 @@
+{
+  "name": "zlatanstajic/kiyosaki",
+  "type": "library",
+  "description": "A modern PHP toolkit for lottery draw history, statistics, generation and result analysis.",
+  "keywords": ["lottery", "lotto generator", "sqlite", "statistics", "php library"],
+  "homepage": "https://github.com/zlatanstajic/kiyosaki",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zlatan Stajic",
+      "email": "contact@zlatanstajic.com",
+      "homepage": "https://www.zlatanstajic.com",
+      "role": "Author & Main Developer"
+    }
+  ],
+  "config": {
+    "allow-plugins": {"pestphp/pest-plugin": true},
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^8.5",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-pdo_sqlite": "*"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.30",
+    "peckphp/peck": "^0.3.0",
+    "pestphp/pest": "^5.1",
+    "phpstan/phpstan": "^2.1",
+    "rector/rector": "^2.6"
+  },
+  "autoload": {"psr-4": {"Kiyosaki\\": "src/"}},
+  "bin": ["bin/kiyosaki"],
+  "scripts": {
+    "lint": "vendor/bin/pint src tests bin examples --test",
+    "peck": "vendor/bin/peck",
+    "rector": "vendor/bin/rector process --dry-run --no-progress-bar --debug",
+    "fix": "vendor/bin/pint src tests bin examples",
+    "rector:fix": "vendor/bin/rector process --no-progress-bar --debug",
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon --no-progress --debug",
+    "test": "vendor/bin/pest --coverage --colors=never --min=80 --coverage-html build/coverage --coverage-clover build/coverage.xml --coverage-text=build/coverage.txt --only-summary-for-coverage-text",
+    "coverage": "@test",
+    "hooks:install": "sh scripts/install-hooks.sh",
+    "check": ["@lint", "@peck", "@rector", "@phpstan", "@test"],
+    "post-install-cmd": ["@hooks:install"],
+    "post-update-cmd": ["@hooks:install"]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

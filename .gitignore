@@ -1,0 +1,6 @@
+.phpunit.cache/
+.vscode/
+build/
+coverage/
+docs/_build/
+vendor/

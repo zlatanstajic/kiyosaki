@@ -1,0 +1,7 @@
+parameters:
+  level: 8
+  paths:
+    - src
+    - bin
+    - examples
+  tmpDir: build/phpstan

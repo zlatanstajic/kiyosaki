@@ -1,0 +1,60 @@
+name: Tests and coverage
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: curl, dom, pdo_sqlite
+          coverage: pcov
+          tools: composer:v2
+
+      - name: Install aspell
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends aspell aspell-en
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Validate package metadata
+        run: composer validate --strict
+
+      - name: Run checks
+        run: composer check
+
+      - name: Add coverage summary
+        if: ${{ always() && hashFiles('build/coverage.txt') != '' }}
+        run: |
+          echo '## Code coverage' >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          cat build/coverage.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload coverage report
+        if: ${{ always() && hashFiles('build/coverage.txt') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: |
+            build/coverage
+            build/coverage.xml
+            build/coverage.txt
+          if-no-files-found: error
