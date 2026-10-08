@@ -7,6 +7,8 @@ source_suffix = {".md": "markdown"}
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "sphinx_rtd_theme"
+html_static_path = ["../assets/img"]
+html_favicon = "../assets/img/favicon.ico"
 html_context = {
     "display_github": True,
     "github_user": "zlatanstajic",

@@ -482,7 +482,8 @@ Contributions are welcome. Open an issue before starting a change and branch
 from `master` using `issues/<number>-<kebab-case-description>`. Pull requests
 must keep the PHP and documentation gates green and preserve the 80% coverage
 minimum. See [CONTRIBUTING.md](CONTRIBUTING.md) for the architecture, database
-and workflow rules.
+and workflow rules. Participation is governed by the
+[Code of Conduct](CODE_OF_CONDUCT.md).
 
 [⬆ back to top](#table-of-contents)
 

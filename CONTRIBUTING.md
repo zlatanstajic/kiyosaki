@@ -2,7 +2,8 @@
 
 Thank you for contributing to Kiyosaki. By submitting a contribution, you
 agree that it may be distributed under the project's
-[MIT License](LICENSE.md).
+[MIT License](LICENSE.md). Participation is governed by the
+[Code of Conduct](CODE_OF_CONDUCT.md).
 
 1. Open an issue and branch from `master` as
    `issues/<number>-<kebab-case-description>`.

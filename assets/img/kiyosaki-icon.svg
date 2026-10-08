@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Kiyosaki lottery ball icon</title>
+  <rect width="512" height="512" rx="112" fill="#071120"/>
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#00c49a" stroke-width="32"/>
+  <path d="M176 152h48v88l76-88h60l-92 104 96 104h-64l-76-86v86h-48z" fill="#ffffff"/>
+</svg>
